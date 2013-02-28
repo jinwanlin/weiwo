@@ -1,0 +1,8 @@
+<%= simple_form_for(@user || User.new, :url => session_path(:user), :html => { :class => 'well', :id => 'user-form'}) do |f| %>
+  <%= f.input :email, :class => 'text_field', :placeholder => 'Email', :label => false, :required => true, :input_html => {:class => 'span3'} %>
+	<%= f.input :password, :class => 'text_field', :placeholder => '密码', :label => false, :required => true, :input_html => {:class => 'span3'} %>
+	<%= f.input :remember_me, :as => :boolean, :label => false, :inline_label => '记住登录状态' %>
+	
+  <%= f.button :submit, '登 录', :class => 'btn btn-primary' %>
+	<%= link_to '忘记密码了?', new_password_path(:user) %>
+<% end %>
