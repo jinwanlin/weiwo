@@ -1,0 +1,21 @@
+<ul class="nav nav-tabs">
+  <li><%= link_to('登陆', new_user_session_path)  %></li>
+  <li class="active"><a href='javascript:return false;'>注册</a></li>
+</ul>
+
+
+
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-horizontal well'}) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.input :email, :required => true, :autofocus => true %>
+    <%= f.input :password, :required => true %>
+    <%= f.input :password_confirmation, :required => true %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit, "Sign up" %>
+  </div>
+<% end %>
+

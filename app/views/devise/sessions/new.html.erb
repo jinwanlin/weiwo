@@ -1,0 +1,15 @@
+<ul class="nav nav-tabs">
+  <li class="active"><a href='javascript:return false;'>登陆</a></li>
+  <li><%= link_to('注册', new_user_registration_path)  %></li>
+</ul>
+
+
+<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'well'}) do |f| %>
+  <%= f.input :email, :class => 'text_field', :placeholder => 'Email', :label => false, :required => true, :input_html => {:class => 'span3'} %>
+	<%= f.input :password, :class => 'text_field', :placeholder => '密码', :label => false, :required => true, :input_html => {:class => 'span3'} %>
+	<%= f.input :remember_me, :as => :boolean, :label => false, :inline_label => '记住登录状态' %>
+	
+  <%= f.button :submit, '登 录', :class => 'btn btn-primary' %>
+	<%= link_to "忘记密码？", new_password_path(resource_name) %>
+  
+<% end %>
